@@ -8,7 +8,7 @@ async function run() {
 
     const octokit = new github.GitHub(githubAuth);
 
-    console.log(`github.context: ${github.context}`);
+    console.log(github.context);
     const repo = github.context.repo.repo;
     const owner = github.context.repo.owner;
     console.log(`repo: ${repo} owner: ${owner}`);
