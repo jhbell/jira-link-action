@@ -1,0 +1,9 @@
+name: 'JIRA Issue Link'
+description: 'Comment with a link to the corresponding JIRA issue on pull request'
+inputs:
+  base-url:
+    description: 'The base url for your JIRA site'
+    required: true
+runs:
+  using: 'node12'
+  main: 'index.js'
