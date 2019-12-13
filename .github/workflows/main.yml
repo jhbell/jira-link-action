@@ -18,3 +18,4 @@ jobs:
       with:
         base-url: 'https://www.google.com'
         issue-prefix: 'LINK'
+        github-auth: ${{ secrets.GITHUB_TOKEN }}
