@@ -1,12 +1,23 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
 
-try {
-  const baseURL = core.getInput('base-url');
-  const issuePrefix = core.getInput('issue-prefix');
-  console.log(`Received base-url: ${baseURL} and issue-prefix: ${issuePrefix}`);
-  const payload = JSON.stringify(github.context.payload, undefined, 2)
-  console.log(`The event payload: ${payload}`);
-} catch (error) {
-  core.setFailed(error.message);
+async function run() {
+    const baseURL = core.getInput('base-url');
+    const issuePrefix = core.getInput('issue-prefix');
+    const githubAuth = core.getInput('github-auth');
+
+    const octokit = new github.GitHub(githubAuth);
+
+    console.log(`github.context: ${github.context}`);
+    const repo = github.context.repo.repo;
+    const owner = github.context.repo.owner;
+    console.log(`repo: ${repo} owner: ${owner}`);
+    /*
+    octokit.request
+        owner: github.context.repo.owner,
+        repo: github.context.repo.repo,
+        pull_number: github.context.
+        
+    })
+    */
 }
