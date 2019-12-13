@@ -11,15 +11,20 @@ async function run() {
     console.log(github.context);
     const repo = github.context.repo.repo;
     const owner = github.context.repo.owner;
+    const branch = github.context.payload.pull_request.head.ref;
     console.log(`repo: ${repo} owner: ${owner}`);
     console.log(github.context.payload.number);
-    
+    console.log(branch);
 
+    const regexString = `${issuePrefix}-\\d+`;
+    let issueRegex = new RegExp(regexString);
+    let issue = branch.match(issueRegex);
+    
     await octokit.issues.createComment({
         owner: github.context.repo.owner,
         repo: github.context.repo.repo,
         issue_number: github.context.payload.number,
-        body: 'Auto-generated comment!'
+        body: `[JIRA](${baseUrl}/browse/${issue}) :+1:`
     });
 }
 
