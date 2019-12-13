@@ -7,6 +7,9 @@ inputs:
   issue-prefix:
     description: 'The prefix for your issues, i.e. LOG-1234 => LOG'
     required: true
+  github-auth:
+    description: 'Temporary github authorization token'
+    required: true
 runs:
   using: 'node12'
   main: 'index.js'
