@@ -24,8 +24,12 @@ async function run() {
         owner: github.context.repo.owner,
         repo: github.context.repo.repo,
         issue_number: github.context.payload.number,
-        body: `[JIRA](${baseUrl}/browse/${issue}) :+1:`
+        body: `[JIRA](${baseURL}/browse/${issue}) :+1:`
     });
 }
 
-run();
+try {
+    run();
+} catch (error) {
+    core.setFailed(error.message);
+}
