@@ -12,12 +12,13 @@ async function run() {
     const repo = github.context.repo.repo;
     const owner = github.context.repo.owner;
     console.log(`repo: ${repo} owner: ${owner}`);
+    console.log(github.context.payload.number);
     
 
-    octokit.request('POST /repos/:owner/:repo/pulls/:pull_number/comments', {
+    await octokit.issues.createComment({
         owner: github.context.repo.owner,
         repo: github.context.repo.repo,
-        pull_number: github.context.payload.number,
+        issue_number: github.context.payload.number,
         body: 'Auto-generated comment!'
     });
 }
