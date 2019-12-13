@@ -4,6 +4,9 @@ inputs:
   base-url:
     description: 'The base url for your JIRA site'
     required: true
+  issue-prefix:
+    description: 'The prefix for your issues, i.e. LOG-1234 => LOG'
+    required: true
 runs:
   using: 'node12'
   main: 'index.js'
