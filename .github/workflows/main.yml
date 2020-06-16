@@ -2,10 +2,10 @@ name: Link Issue
 
 on:
   pull_request:
-    types: [opened]
+    types: [opened, labeled]
 
 jobs:
-  build:
+  link:
 
     runs-on: ubuntu-latest
 
