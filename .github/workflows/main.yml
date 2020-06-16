@@ -2,7 +2,7 @@ name: Link Issue
 
 on:
   pull_request:
-    types: [opened, labeled]
+    types: [opened]
 
 jobs:
   build:
